@@ -1,2 +1,23 @@
-ml/firebase-sdk-key.json
+# Python virtual environment - never commit this
+venv/
+
+# macOS junk
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Trained model files (large binary - add them separately or document how to get them)
+app/models/*.h5
+
+# Firebase secrets - NEVER commit real credentials
 ml/src/info/firebase_config.json
+
+# Temporary ML files
+ml/src/temp/
+ml/src/temp-storage/*.csv
+ml/src/temp-storage/*.txt
+ml/src/temp-storage/*.mp4

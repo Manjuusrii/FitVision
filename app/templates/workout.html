@@ -5,36 +5,40 @@
     <iframe src="/video" title="Video Webcam" id="webcam" scrolling="yes"></iframe>
 </div>
 <div id="webcam-data">
-    <h3 id="full-score">Accuracy Score: <span id="accuracy-score">X%</span></h3>
+    <h3 id="full-score">Accuracy Score: <span id="accuracy-score">—</span></h3>
     <div id="workout-data">
         <label for="exercise-type"><b>Exercise Type:</b></label>
-        <select class="form-select" id="exercise-type" name="exercise-type" class="workout-inputs">
+        <!-- FIX: Only include exercises that have trained models and config in data_info.json.
+             Squat and Jumping Jack were in the UI but have no backend support. -->
+        <select class="form-select" id="exercise-type" name="exercise-type">
             <option value="test">Test</option>
             <option value="pushup">Pushup</option>
-            <option value="squat">Squat</option>
-            <option value="jumping-jack">Jumping Jack</option>
         </select>
+
         <div class="workout-inputs">
             <label for="exercise-reps"><b>Number of reps:</b></label>
-            <input type="number" name="exercise-reps" id="exercise-reps">
+            <input type="number" name="exercise-reps" id="exercise-reps" min="1">
         </div>
+
         <label for="rep-speed"><b>Rep speed:</b></label>
-        <select class="form-select" id="rep-speed" name="rep-speed" class="workout-inputs">
-            <option value=7>Slow</option>
-            <option value=5>Medium</option>
-            <option value=3>Fast</option>
+        <select class="form-select" id="rep-speed" name="rep-speed">
+            <option value="7">Slow</option>
+            <option value="5">Medium</option>
+            <option value="3">Fast</option>
         </select>
+
         <div class="workout-inputs">
             <label for="exercise-sets"><b>Number of sets:</b></label>
-            <input type="number" name="exercise-sets" id="exercise-sets">
+            <input type="number" name="exercise-sets" id="exercise-sets" min="1">
         </div>
+
         <div class="workout-inputs">
             <label for="exercise-breaks"><b>Length of breaks (s):</b></label>
-            <input type="number" name="exercise-breaks" id="exercise-breaks">
+            <input type="number" name="exercise-breaks" id="exercise-breaks" min="0">
         </div>
-        <button type="button" class="btn btn-primary" id="begin-workout" onClick="startWorkout()">Start Workout</button>
-        <button type="button" class="btn btn-danger" id="end-workout" onClick="stopWorkout()" disabled>End Workout</button>
+
+        <button type="button" class="btn btn-primary" id="begin-workout" onclick="startWorkout()">Start Workout</button>
+        <button type="button" class="btn btn-danger"  id="end-workout"   onclick="stopWorkout()" disabled>End Workout</button>
     </div>
 </div>
-
 {% endblock %}

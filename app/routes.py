@@ -20,7 +20,9 @@ def get_video():
 
 @app.route('/get-model-response', methods=["GET"])
 def get_model_response():
-    return jsonify({"response": str(send_prediction())})
+    prediction = send_prediction()
+    # Return "null" string if prediction is not yet available
+    return jsonify({"response": str(prediction) if prediction is not None else "null"})
 
 @app.route('/video', methods=["POST"])
 def set_video():
@@ -33,7 +35,7 @@ def set_video():
         elif method == "end-workout":
             app_info['workout'] = False
     except Exception as e:
-        return jsonify({"message": e})
+        return jsonify({"message": str(e)})   # FIX: was just `e`, not str(e)
     return jsonify({"message": f"Changed method to {method}."})
 
 if __name__ == "__main__":

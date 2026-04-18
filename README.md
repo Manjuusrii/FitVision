@@ -35,24 +35,6 @@ Beyond real-time analysis, FitVision stores your workout sessions and progress t
 
 ---
 
-## Project Structure
-
-```
-FitVision/
-├── app/
-│   ├── routes.py          # Flask routes and server entry point
-│   ├── webcam.py          # Webcam capture and pose processing logic
-│   ├── templates/         # HTML templates
-│   └── static/            # CSS, JS, assets
-├── src/
-│   └── info/
-│       └── firebase_config.json   # Firebase configuration (replace with your values)
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
-
----
 
 ## Setup Instructions
 
